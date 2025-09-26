@@ -1,0 +1,19 @@
+SELECT Album.Title, Artist.Name FROM Album
+INNER JOIN Artist ON Album.ArtistId = Artist.ArtistID LIMIT 10;
+
+
+SELECT l.Title AS AlbumName, r.Name AS ArtistName FROM Album l
+INNER JOIN Artist r ON l.ArtistId = r.ArtistID LIMIT 10;
+
+SELECT g.Name AS GenreName, t.Name AS TrackName FROM Track t
+INNER JOIN Genre g ON g.GenreId = t.GenreId LIMIT 10;
+
+SELECT c.FirstName AS CustomerName,
+e.FirstName AS SupportRepName, 
+e.Title AS SupportRepTitle FROM Customer c 
+LEFT JOIN Employee e ON c.SupportRepId = e.EmployeeId;
+
+SELECT COUNT(*)
+FROM Customer c LEFT JOIN Employee e ON c.SupportRepId = e.EmployeeId;
+
+CREATE VIEW ITEmployee AS SELECT * FROM Employee WHERE Title LIKE '%it%';
